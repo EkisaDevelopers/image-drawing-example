@@ -1,0 +1,35 @@
+<div class="grid-container">
+  <input
+    #fileUploader
+    type="file"
+    accept="image/x-png,image/gif,image/jpeg"
+    (change)="onChange($event)"
+  />
+
+  <div [hidden]="!imageSrc">
+    <image-drawing
+      [src]="imageSrc"
+      outputMimeType="'image/png'"
+      [width]="300"
+      [height]="300"
+      saveBtnText="Guardar"
+      cancelBtnText="Cancelar"
+      [colors]="{
+        black: '#111827',
+        white: '#fff',
+        yellow: '#FBBF24',
+        red: '#EF4444',
+        blue: '#2563EB',
+        green: '#059669',
+        purple: '#7C3AED'
+      }"
+      [drawingSizes]="{
+        small: 3,
+        medium: 10,
+        large: 25
+      }"
+      (save)="onSave($event)"
+      (cancel)="onCancel()"
+    ></image-drawing>
+  </div>
+</div>
